@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admission Inquiry Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2E8B57;
+      margin-top: 20px;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],  
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      background-color: #2E8B57;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 0 250px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #1e5e3a; /* Darker green */
+      transform: scale(1.05); /* Slightly bigger */
+    }
+    
+
+  </style>
+</head>
+<body>
+
+  <h1>Admission Form</h1>
+
+  <form action="submit" method="post">
+   
+    <!-- Full Name -->
+    <label for="name">Full Name:</label><br>
+    <input type="text"  required> <br><br>
+
+    <!-- Email -->
+    <label for="email">Email:</label><br>
+    <input type="email"  required><br><br>
+
+    <!-- Phone -->
+    <label for="phone">Phone Number:</label><br>
+    <input type="tel"><br><br>
+
+    <!-- Grade Applying For -->
+     
+    <label for="grade">Grade Applying For:</label><br>
+    <select ">
+      <option value="nursery">Nursery</option>
+      <option value="kg">Kindergarten</option>
+      <option value="1">Class 1</option>
+      <option value="2">Class 2</option>
+      <option value="4">Class 3</option>
+      <option value="5">Class 4</option>
+      <option value="6">Class 5</option>
+      <option value="7">Class 6</option>
+    </select><br><br>
+
+    <!-- Message -->
+    <label for="message">Your Message:</label><br>
+    <textarea id="message" name="message" ></textarea><br><br>
+    
+    <!-- Submit Button -->
+    <input type="submit" value="Submit">
+
+  </form>
+
+</body>
+</html>
