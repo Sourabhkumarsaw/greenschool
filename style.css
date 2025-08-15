@@ -124,5 +124,34 @@
       background-color: #1e5e3a; /* Darker green */
       transform: scale(1.05); /* Slightly bigger */
     }
+    .thank-you-message {
+      display: none;
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      border-radius: 5px;
+    }
 
-  
+    /* Slideshow styles */
+    #slideshow {
+      position: relative;
+      max-width: 100%;
+      margin: 250px 0 0 0;
+      overflow: hidden;
+    }
+    .slides {
+      display: none;
+    }
+    .slides img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    .fade {
+      animation: fadeEffect 1.5s ease-in-out;
+    }
+    @keyframes fadeEffect {
+      from {opacity: 0.4}
+      to {opacity: 1}
+    }
