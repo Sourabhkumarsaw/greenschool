@@ -20,9 +20,6 @@
   );
 
     /* ====== Slideshow JS ====== */
-       let slideIndex = 0;
-    showSlides();
-
     function showSlides() {
       let i;
       let slides = document.getElementsByClassName("slide");
@@ -49,3 +46,7 @@
       slideIndex = n-1;
       showSlides();
     }
+
+   let slideIndex = 0;
+    showSlides();
+
