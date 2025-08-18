@@ -22,9 +22,14 @@
     /* ====== Slideshow JS ====== */
     function showSlides() {
       let i;
+      let slideIndex = 0;
       let slides = document.getElementsByClassName("slide");
       let dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
+     
+     alert('Hellooooooooooo');
+     alert('Slides Length: '+slides.length);
+     
+     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
       slideIndex++;
@@ -47,6 +52,5 @@
       showSlides();
     }
 
-   let slideIndex = 0;
-    showSlides();
+   showSlides();
 
