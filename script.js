@@ -1,18 +1,4 @@
-  // Slideshow
-    let slideIndex = 0;
-    showSlides();
-    function showSlides() {
-      let slides = document.getElementsByClassName("slides");
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      slides[slideIndex-1].style.display = "block";  
-      setTimeout(showSlides, 3000); // Change every 3s
-    }
-
-    // Form validation & thank you message
+ // Form validation & thank you message
     document.getElementById("inquiryForm").addEventListener("submit", function(event) {
       event.preventDefault();
       let name = document.getElementById("name").value.trim();
@@ -32,3 +18,34 @@
       }, 5000);
     }
   );
+
+    /* ====== Slideshow JS ====== */
+       let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 4000); // Change every 4 seconds
+    }
+
+    function plusSlides(n) {
+      slideIndex += n-1;
+      showSlides();
+    }
+
+    function currentSlide(n) {
+      slideIndex = n-1;
+      showSlides();
+    }

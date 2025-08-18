@@ -42,6 +42,74 @@
       color: #FFD700; /* Gold on hover */
       transform: scale(1.1); /* Slight pop effect */
     }
+         /* ====== Slideshow Styling ====== */
+ .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: 40px auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 450px;
+      object-fit:fill;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 12px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 22px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background: rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    /* Dots */
+    .dots {
+      text-align: center;
+      padding: 15px;
+      background: #f4f6f9;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #333;
+    }
+
       
      #about, #academics, #contact{
       padding: 20px;
@@ -132,26 +200,4 @@
       color: #155724;
       border: 1px solid #c3e6cb;
       border-radius: 5px;
-    }
-
-    /* Slideshow styles */
-    #slideshow {
-      position: relative;
-      max-width: 100%;
-      margin: 250px 0 0 0;
-      overflow: hidden;
-    }
-    .slides {
-      display: none;
-    }
-    .slides img {
-      width: 100%;
-      border-radius: 5px;
-    }
-    .fade {
-      animation: fadeEffect 1.5s ease-in-out;
-    }
-    @keyframes fadeEffect {
-      from {opacity: 0.4}
-      to {opacity: 1}
     }
