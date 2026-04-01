@@ -1,115 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Green Valley Public School offers future-ready academics, modern facilities, and a nurturing learning community."
+  >
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-  <title>Green Valley Public School</title>  
-  </head>
- <body>
+  <script src="script.js" defer></script>
+  <title>Green Valley Public School</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#home" aria-label="Green Valley Public School home">
+        <img src="images/Green_School_Logo.jpg" alt="Green Valley Public School logo">
+        <div>
+          <strong>Green Valley</strong>
+          <span>Public School</span>
+        </div>
+      </a>
 
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Open navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-  <!-- Header -->
-  <div class="header">
-    <h1>Green Valley Public School</h1>
-    <p>Learning Today, Leading Tomorrow</p>
-  </div>
-
-  <!-- Navigation with Logo -->
-  <div class="navbar">
-    <img src="images\Green_School_Logo.jpg" alt="School Logo">
-    <div class="nav-links">
-      <a href="#about">About Us</a>
-      <a href="#admissions">Admissions</a>
-      <a href="#academics">Academics</a>
-      <a href="#facilities">Facilities</a>
-      <a href="#contact">Contact</a>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#academics">Academics</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#admissions">Admissions</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <!-- Slideshow -->
-  <div class="slideshow-container">
-    <div class="slide"><img src="images\1-3.jpg" alt="School Image 1"></div>
-    <div class="slide"><img src="images\images.jpg" alt="School Image 2"></div>
-    <div class="slide"><img src="images\istockphoto.jpg" alt="School Image 3"></div>
-  </div>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-slider" aria-label="School highlights">
+        <article class="hero-slide is-active">
+          <img src="images/1-3.jpg" alt="Students learning together in a classroom">
+          <div class="hero-overlay"></div>
+        </article>
+        <article class="hero-slide">
+          <img src="images/images.jpg" alt="A bright and welcoming school campus">
+          <div class="hero-overlay"></div>
+        </article>
+        <article class="hero-slide">
+          <img src="images/istockphoto.jpg" alt="Students participating in school activities">
+          <div class="hero-overlay"></div>
+        </article>
+      </div>
 
-  <!-- About Section -->
-  <div id="about" class="about-section">
-   <div>
-     <h2>About Us</h2>
-   </div>
-    <div>
-      <img id="Image" src="images\Home_Our_Program.png">
+      <div class="container hero-content">
+        <div class="eyebrow">Learning Today, Leading Tomorrow</div>
+        <h1>Where academic excellence meets confidence, character, and creativity.</h1>
+        <p>
+          Green Valley Public School nurtures curious minds with strong academics,
+          modern learning spaces, leadership opportunities, and a vibrant campus culture.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#admissions">Apply for Admission</a>
+          <a class="button button-secondary" href="#academics">Explore Programs</a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-card reveal">
+            <strong class="count-up" data-target="18" data-suffix="">0</strong>
+            <span>Years of academic excellence</span>
+          </div>
+          <div class="metric-card reveal">
+            <strong class="count-up" data-target="1200" data-suffix="+">0</strong>
+            <span>Students in a future-ready campus</span>
+          </div>
+          <div class="metric-card reveal">
+            <strong class="count-up" data-target="96" data-suffix="%">0</strong>
+            <span>Board exam success rate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-controls container" aria-label="Slider controls">
+        <button class="slider-button" type="button" data-direction="prev" aria-label="Previous slide">Prev</button>
+        <div class="slider-dots" aria-label="Choose highlight slide">
+          <button class="dot is-active" type="button" data-slide="0" aria-label="Go to slide 1"></button>
+          <button class="dot" type="button" data-slide="1" aria-label="Go to slide 2"></button>
+          <button class="dot" type="button" data-slide="2" aria-label="Go to slide 3"></button>
+        </div>
+        <button class="slider-button" type="button" data-direction="next" aria-label="Next slide">Next</button>
+      </div>
+    </section>
+
+    <section class="section intro-strip">
+      <div class="container intro-grid">
+        <article class="info-card reveal">
+          <p class="info-label">Campus Vision</p>
+          <h2>Building capable, compassionate, and confident young leaders.</h2>
+        </article>
+        <article class="info-card reveal">
+          <p class="info-label">What Makes Us Different</p>
+          <p>
+            We blend rigorous academics, real-world projects, clubs, sports, and
+            mentorship so students grow in every direction.
+          </p>
+        </article>
+        <article class="info-card highlight-card reveal">
+          <p class="info-label">Next Open House</p>
+          <h3>Saturday, 10:00 AM</h3>
+          <p>Tour classrooms, meet faculty, and discover the admissions journey.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section content-section" id="about">
+      <div class="container two-column">
+        <div class="section-copy reveal">
+          <p class="section-tag">About Us</p>
+          <h2>A school community designed for curious learners.</h2>
+          <p>
+            At Green Valley Public School, we create a safe and inspiring environment
+            where students can think deeply, communicate clearly, and discover their strengths.
+          </p>
+          <ul class="feature-list">
+            <li>Project-based learning across core subjects</li>
+            <li>Mentorship culture that supports personal growth</li>
+            <li>Balanced development through arts, sports, and leadership</li>
+          </ul>
+        </div>
+        <div class="media-card reveal">
+          <img src="images/Home_Our_Program.png" alt="Students taking part in a classroom learning program">
+        </div>
+      </div>
+    </section>
+
+    <section class="section content-section soft-section" id="academics">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-tag">Academics</p>
+          <h2>Learning pathways built for every stage of school life.</h2>
+          <p>
+            Our academic model is structured, engaging, and future-focused, helping students
+            build mastery while staying curious and creative.
+          </p>
+        </div>
+
+        <div class="tabs reveal" role="tablist" aria-label="Academic programs">
+          <button class="tab-button is-active" type="button" role="tab" aria-selected="true" data-tab="primary">Primary Years</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab="middle">Middle School</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab="senior">Senior Secondary</button>
+        </div>
+
+        <div class="tab-panels">
+          <article class="tab-panel is-active reveal" data-panel="primary">
+            <div class="panel-grid">
+              <img src="images/Home_Our_Programs.png" alt="Primary students taking part in engaging lessons">
+              <div>
+                <h3>Strong foundations with joyful discovery</h3>
+                <p>
+                  Early learners build confidence in language, numeracy, collaboration,
+                  and expression through activity-based teaching.
+                </p>
+                <ul class="feature-list">
+                  <li>Reading readiness and communication skills</li>
+                  <li>Creative exploration through music and art</li>
+                  <li>Confidence-building classroom routines</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="tab-panel reveal" data-panel="middle">
+            <div class="panel-grid">
+              <img src="images/images.jpg" alt="Middle school students in a modern academic setting">
+              <div>
+                <h3>Concept mastery with guided independence</h3>
+                <p>
+                  Middle school students strengthen analytical thinking, teamwork,
+                  and digital literacy through deeper subject engagement.
+                </p>
+                <ul class="feature-list">
+                  <li>STEM labs and interdisciplinary projects</li>
+                  <li>Club participation and communication practice</li>
+                  <li>Regular feedback that supports growth</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="tab-panel reveal" data-panel="senior">
+            <div class="panel-grid">
+              <img src="images/1-3.jpg" alt="Senior students preparing for higher education">
+              <div>
+                <h3>Focused preparation for university and beyond</h3>
+                <p>
+                  Senior learners receive academic rigor, career guidance, and leadership
+                  opportunities that prepare them for competitive futures.
+                </p>
+                <ul class="feature-list">
+                  <li>Advanced subject mentoring and exam support</li>
+                  <li>Career counseling and portfolio building</li>
+                  <li>Leadership programs and public speaking exposure</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section content-section" id="facilities">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-tag">Facilities</p>
+          <h2>Spaces that make learning hands-on, active, and inspiring.</h2>
+        </div>
+
+        <div class="card-grid">
+          <article class="feature-card reveal">
+            <img src="images/4405826.jpg" alt="Well-equipped classroom and learning environment">
+            <h3>Smart Classrooms</h3>
+            <p>Technology-enabled spaces built for collaboration, visual learning, and focus.</p>
+          </article>
+          <article class="feature-card reveal">
+            <img src="images/5702425.jpg" alt="Friendly support and campus services area">
+            <h3>Student Support</h3>
+            <p>Guidance, pastoral care, and parent communication that keep students supported.</p>
+          </article>
+          <article class="feature-card reveal">
+            <img src="images/istockphoto.jpg" alt="Students enjoying extracurricular and sports activities">
+            <h3>Sports and Activities</h3>
+            <p>Playgrounds, team sports, clubs, and events that develop confidence and teamwork.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section admissions-band" id="admissions">
+      <div class="container admissions-layout">
+        <div class="section-copy reveal">
+          <p class="section-tag">Admissions</p>
+          <h2>A clear and welcoming application process.</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span>01</span>
+              <div>
+                <h3>Submit an inquiry</h3>
+                <p>Share your child's details and the grade you are considering.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span>02</span>
+              <div>
+                <h3>Schedule a campus interaction</h3>
+                <p>Meet our admissions team, visit learning spaces, and ask questions.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span>03</span>
+              <div>
+                <h3>Complete enrollment</h3>
+                <p>Finalize documentation and receive onboarding guidance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card reveal">
+          <h3>Admissions Inquiry Form</h3>
+          <p class="storage-note">
+            Run this site with the local server to save admissions data into the school database.
+          </p>
+          <form id="admissionForm" novalidate>
+            <label>
+              Student Name
+              <input type="text" id="name" name="name" placeholder="Enter student name" required>
+            </label>
+            <label>
+              Grade Applying For
+              <select id="grade" name="grade" required>
+                <option value="">Select a grade</option>
+                <option value="Nursery">Nursery</option>
+                <option value="Primary">Primary</option>
+                <option value="Middle School">Middle School</option>
+                <option value="Senior Secondary">Senior Secondary</option>
+              </select>
+            </label>
+            <label>
+              Parent or Guardian Name
+              <input type="text" id="parent" name="parent" placeholder="Enter parent name" required>
+            </label>
+            <label>
+              Contact Number
+              <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter contact number" required>
+            </label>
+            <label>
+              Additional Information
+              <textarea id="message" name="message" rows="4" maxlength="180" placeholder="Tell us about your child or any questions you have"></textarea>
+              <small class="helper-text"><span id="messageCount">0</span>/180 characters</small>
+            </label>
+            <button class="button button-primary form-submit" type="submit">Submit Inquiry</button>
+          </form>
+          <p id="thankYou" class="form-feedback" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-tag">Community Voice</p>
+          <h2>Families trust us to help students thrive.</h2>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial reveal">
+            <p>"The school combines discipline, warmth, and strong academics in a way that really helps children grow."</p>
+            <strong>Parent of Grade 6 Student</strong>
+          </article>
+          <article class="testimonial reveal">
+            <p>"Teachers encourage questions, confidence, and participation. My child feels seen and supported."</p>
+            <strong>Parent of Primary Student</strong>
+          </article>
+          <article class="testimonial reveal">
+            <p>"The balance between exam preparation and extracurricular exposure has been excellent."</p>
+            <strong>Parent of Grade 11 Student</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-layout">
+        <div class="section-copy reveal">
+          <p class="section-tag">Contact</p>
+          <h2>Visit the campus and connect with our team.</h2>
+          <p>
+            We would love to help you explore whether Green Valley Public School is the right fit for your child.
+          </p>
+        </div>
+
+        <div class="contact-cards">
+          <article class="contact-card reveal">
+            <h3>Email</h3>
+            <p>info@greenvalley.edu</p>
+          </article>
+          <article class="contact-card reveal">
+            <h3>Phone</h3>
+            <p>+91 9876543210</p>
+          </article>
+          <article class="contact-card reveal">
+            <h3>Address</h3>
+            <p>Green Valley Road, New Delhi, India</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p>&copy; <span id="currentYear"></span> Green Valley Public School. All rights reserved.</p>
+      <a href="#home">Back to top</a>
     </div>
-   <div id="aboutContent">
-     <p>Green Valley Public School provides quality education to prepare students for success in life. We focus on academic excellence, creativity, and overall development.</p>
-   </div>
-  </div>
-
-  <!-- Admissions Section -->
-  <div id="admissions" class="section admissions-section">
-    <h2>Admissions Inquiry</h2>
-    <div class="form-container">
-      <form id="admissionForm">
-        <input type="text" id="name" name="name" placeholder="Student's Name" required>
-        <input type="text" id="grade" name="grade" placeholder="Grade Applying For" required>
-        <input type="text" id="parent" name="parent" placeholder="Parent's Name" required>
-        <input type="text" id="contact" name="contact" placeholder="Contact Number" required>
-        <textarea id="message" name="message" placeholder="Additional Information"></textarea>
-        <button type="submit">Submit Inquiry</button>
-      </form>
-      <p id="thankYou" style="display:none; color:green; font-weight:bold; text-align:center; margin-top:15px;">
-        Thank you! We will contact you soon.
-      </p>
-    </div>
-  </div>
-
-  <!-- Academics Section -->
-  <div id="academics" class="academics-section">
-   <div>
-     <h2>Academics</h2>
-   </div>
-   <div>
-      <img id="Image2" src="images\Home_Our_Programs.png">
-   </div>
-   <div id="academicsContent">
-     <p>We provide a balanced curriculum with emphasis on both academics and extracurricular activities to nurture well-rounded individuals.</p>
-   </div>
-  </div>
-
-  <!-- Facilities Section -->
-  <div id="facilities" class="facilities-section">
-    <div>
-      <h2>Facilities</h2>
-    </div>
-    <div>
-      <img id="Image3" src="images\4405826.jpg" >
-    </div>
-   <div id="facilitiesContent">
-     <p>Our school offers modern classrooms, a library, science labs, sports facilities, and a safe learning environment for all students.</p>
-  </div>
-   </div>
-
-  <!-- Contact Section -->
-  <div id="contact" class="section contact-section">
-   <div>
-     <h2>Contact Us</h2>
-   </div>
-   <div>
-      <img id="Image4" src="images\5702425.jpg">
-   </div>
-   <div id="contactContent">
-     <p>Email: info@greenvalley.edu</p>
-    <p>Phone: +91 9876543210</p>
-    <p>Address: Green Valley Road, New Delhi, India</p>
-   </div>
-  </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <p>&copy; 2025 Green Valley Public School. All rights reserved.</p>
-  </div>
+  </footer>
 </body>
 </html>
