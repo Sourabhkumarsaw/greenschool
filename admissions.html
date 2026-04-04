@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Start the Green Valley Public School admissions process, review the steps, and submit an inquiry online."
+  >
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Admissions | Green Valley Public School</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html" aria-label="Green Valley Public School home">
+        <img src="images/Green_School_Logo.jpg" alt="Green Valley Public School logo">
+        <div>
+          <strong>Green Valley</strong>
+          <span>Public School</span>
+        </div>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Open navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+        <a href="facilities.html">Facilities</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero-shell">
+        <div class="page-hero-copy reveal">
+          <p class="eyebrow">Admissions</p>
+          <h1>A simple admissions journey with guidance at every step.</h1>
+          <p>
+            We welcome families who are looking for a school that combines academic ambition
+            with strong values, caring teachers, and a supportive campus environment.
+          </p>
+          <div class="inline-actions">
+            <a class="button button-primary" href="#inquiry-form">Send an Inquiry</a>
+            <a class="button button-secondary" href="contact.html">Speak With Us</a>
+          </div>
+        </div>
+
+        <aside class="page-hero-card reveal">
+          <h2>Before You Apply</h2>
+          <p>Our admissions team is happy to guide you through grade availability, documentation, and timelines.</p>
+          <ul>
+            <li>Choose the grade level you are considering</li>
+            <li>Keep basic parent and student details ready</li>
+            <li>Visit the campus to experience classrooms firsthand</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section admissions-band">
+      <div class="container admissions-layout">
+        <div class="section-copy reveal">
+          <p class="section-tag">Application Steps</p>
+          <h2>What the process looks like for new families.</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span>01</span>
+              <div>
+                <h3>Submit your inquiry</h3>
+                <p>Send us your child’s details and the class you are exploring for admission.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span>02</span>
+              <div>
+                <h3>Meet the school team</h3>
+                <p>Visit the campus, see learning spaces, and speak with our admissions coordinators.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span>03</span>
+              <div>
+                <h3>Complete documentation</h3>
+                <p>Finalize the required forms and receive next-step guidance for onboarding.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card reveal" id="inquiry-form">
+          <h3>Admissions Inquiry Form</h3>
+          <p class="storage-note">
+            Run this site with the local server to save admissions data into the school database.
+          </p>
+          <form id="admissionForm" novalidate>
+            <label>
+              Student Name
+              <input type="text" id="name" name="name" placeholder="Enter student name" required>
+            </label>
+            <label>
+              Grade Applying For
+              <select id="grade" name="grade" required>
+                <option value="">Select a grade</option>
+                <option value="Nursery">Nursery</option>
+                <option value="Primary">Primary</option>
+                <option value="Middle School">Middle School</option>
+                <option value="Senior Secondary">Senior Secondary</option>
+              </select>
+            </label>
+            <label>
+              Parent or Guardian Name
+              <input type="text" id="parent" name="parent" placeholder="Enter parent name" required>
+            </label>
+            <label>
+              Contact Number
+              <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter contact number" required>
+            </label>
+            <label>
+              Additional Information
+              <textarea id="message" name="message" rows="4" maxlength="180" placeholder="Tell us about your child or any questions you have"></textarea>
+              <small class="helper-text"><span id="messageCount">0</span>/180 characters</small>
+            </label>
+            <button class="button button-primary form-submit" type="submit">Submit Inquiry</button>
+          </form>
+          <p id="thankYou" class="form-feedback" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section content-section soft-section">
+      <div class="container detail-grid">
+        <article class="detail-card reveal">
+          <h3>Helpful Checklist</h3>
+          <p>Keeping a few details ready will make the initial inquiry faster and smoother for your family.</p>
+          <ul>
+            <li>Student name and current grade information</li>
+            <li>Preferred entry class and contact number</li>
+            <li>Questions about transport, academics, or campus life</li>
+          </ul>
+        </article>
+
+        <article class="detail-card reveal">
+          <h3>What Happens Next</h3>
+          <p>
+            Once your inquiry is received, our team will review the request and connect with you
+            regarding the next available admissions interaction.
+          </p>
+          <ul>
+            <li>Confirmation from the admissions office</li>
+            <li>Guidance on visits, interaction rounds, and documentation</li>
+            <li>Support throughout enrollment and onboarding</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="notice-card reveal">
+          <h3>Campus interactions are open by appointment.</h3>
+          <p>
+            Families are encouraged to visit the school, meet our team, and ask practical questions
+            about programs, facilities, and student life before completing enrollment.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p>&copy; <span id="currentYear"></span> Green Valley Public School. All rights reserved.</p>
+      <a href="index.html">Back to home</a>
+    </div>
+  </footer>
+</body>
+</html>

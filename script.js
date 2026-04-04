@@ -15,28 +15,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const messageInput = document.getElementById("message");
   const messageCount = document.getElementById("messageCount");
   const currentYear = document.getElementById("currentYear");
-  const submitButton = form.querySelector(".form-submit");
+  const submitButton = form?.querySelector(".form-submit");
   const apiBaseUrl = window.location.protocol === "file:" ? null : window.location.origin;
+  const currentPath = window.location.pathname.split("/").pop() || "index.html";
   let activeSlide = 0;
   let sliderTimer;
 
   const setHeaderState = () => {
+    if (!header) {
+      return;
+    }
+
     header.classList.toggle("is-scrolled", window.scrollY > 24);
   };
 
   const toggleMenu = () => {
+    if (!nav || !menuToggle) {
+      return;
+    }
+
     const isOpen = nav.classList.toggle("is-open");
     menuToggle.classList.toggle("is-open", isOpen);
     menuToggle.setAttribute("aria-expanded", String(isOpen));
   };
 
   const closeMenu = () => {
+    if (!nav || !menuToggle) {
+      return;
+    }
+
     nav.classList.remove("is-open");
     menuToggle.classList.remove("is-open");
     menuToggle.setAttribute("aria-expanded", "false");
   };
 
   const showSlide = (index) => {
+    if (!slides.length) {
+      return;
+    }
+
     activeSlide = (index + slides.length) % slides.length;
 
     slides.forEach((slide, slideIndex) => {
@@ -50,6 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const restartSlider = () => {
+    if (slides.length < 2) {
+      return;
+    }
+
     window.clearInterval(sliderTimer);
     sliderTimer = window.setInterval(() => {
       showSlide(activeSlide + 1);
@@ -101,26 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.18 }
   );
 
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        const sectionId = entry.target.getAttribute("id");
-        navLinks.forEach((link) => {
-          const href = link.getAttribute("href");
-          link.classList.toggle("is-active", href === `#${sectionId}`);
-        });
-      });
-    },
-    {
-      rootMargin: "-35% 0px -45% 0px",
-      threshold: 0.1
-    }
-  );
-
   const activateTab = (tabName) => {
     tabButtons.forEach((button) => {
       const isActive = button.dataset.tab === tabName;
@@ -145,20 +146,33 @@ document.addEventListener("DOMContentLoaded", () => {
     return isValid;
   };
 
+  const setActivePageLink = () => {
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      const targetPath = href.split("#")[0] || "index.html";
+      const isActive = targetPath === currentPath;
+
+      link.classList.toggle("is-active", isActive);
+
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
   setHeaderState();
+  setActivePageLink();
   showSlide(0);
   restartSlider();
 
   revealItems.forEach((item) => revealObserver.observe(item));
   countItems.forEach((item) => revealObserver.observe(item));
 
-  document.querySelectorAll("section[id]").forEach((section) => {
-    sectionObserver.observe(section);
-  });
-
   window.addEventListener("scroll", setHeaderState);
 
-  menuToggle.addEventListener("click", toggleMenu);
+  menuToggle?.addEventListener("click", toggleMenu);
 
   navLinks.forEach((link) => {
     link.addEventListener("click", closeMenu);
@@ -183,79 +197,89 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => activateTab(button.dataset.tab));
   });
 
-  messageInput.addEventListener("input", () => {
-    messageCount.textContent = String(messageInput.value.length);
-  });
+  if (messageInput && messageCount) {
+    messageInput.addEventListener("input", () => {
+      messageCount.textContent = String(messageInput.value.length);
+    });
+  }
 
-  form.querySelectorAll("input[required], select[required]").forEach((field) => {
-    field.addEventListener("blur", () => validateField(field));
-  });
+  if (form && thankYou && submitButton) {
+    form.querySelectorAll("input[required], select[required]").forEach((field) => {
+      field.addEventListener("blur", () => validateField(field));
+    });
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-    const requiredFields = [...form.querySelectorAll("input[required], select[required]")];
-    const formIsValid = requiredFields.every((field) => validateField(field));
+      const requiredFields = [...form.querySelectorAll("input[required], select[required]")];
+      const formIsValid = requiredFields.every((field) => validateField(field));
 
-    if (!formIsValid) {
-      thankYou.textContent = "Please complete all required fields correctly before submitting.";
-      thankYou.style.color = "#c45532";
-      return;
-    }
-
-    if (!apiBaseUrl) {
-      thankYou.textContent = "Start `python server.py` and open http://127.0.0.1:8000 to save submissions to the database.";
-      thankYou.style.color = "#c45532";
-      return;
-    }
-
-    const studentName = document.getElementById("name").value.trim();
-    const parentName = document.getElementById("parent").value.trim();
-    const selectedGrade = document.getElementById("grade").value;
-    const contactNumber = document.getElementById("contactNumber").value.trim();
-    const additionalInfo = messageInput.value.trim();
-    const originalLabel = submitButton.textContent;
-
-    submitButton.disabled = true;
-    submitButton.textContent = "Saving...";
-    thankYou.textContent = "Saving inquiry to the database...";
-    thankYou.style.color = "#5f6f66";
-
-    fetch(`${apiBaseUrl}/api/admissions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        studentName,
-        grade: selectedGrade,
-        parentName,
-        contactNumber,
-        message: additionalInfo
-      })
-    })
-      .then(async (response) => {
-        const payload = await response.json().catch(() => ({}));
-
-        if (!response.ok) {
-          throw new Error(payload.error || "Unable to save the admission inquiry right now.");
-        }
-
-        thankYou.textContent = `Thank you, ${parentName}. We have saved ${studentName}'s inquiry for ${selectedGrade} in the database.`;
-        thankYou.style.color = "#1e6f4b";
-        form.reset();
-        messageCount.textContent = "0";
-        form.querySelectorAll(".is-invalid").forEach((field) => field.classList.remove("is-invalid"));
-      })
-      .catch((error) => {
-        thankYou.textContent = error.message || "Unable to save the admission inquiry right now.";
+      if (!formIsValid) {
+        thankYou.textContent = "Please complete all required fields correctly before submitting.";
         thankYou.style.color = "#c45532";
-      })
-      .finally(() => {
-        submitButton.disabled = false;
-        submitButton.textContent = originalLabel;
-      });
-  });
+        return;
+      }
 
-  currentYear.textContent = String(new Date().getFullYear());
+      if (!apiBaseUrl) {
+        thankYou.textContent = "Start `python server.py` and open http://127.0.0.1:8000 to save submissions to the database.";
+        thankYou.style.color = "#c45532";
+        return;
+      }
+
+      const studentName = document.getElementById("name").value.trim();
+      const parentName = document.getElementById("parent").value.trim();
+      const selectedGrade = document.getElementById("grade").value;
+      const contactNumber = document.getElementById("contactNumber").value.trim();
+      const additionalInfo = messageInput ? messageInput.value.trim() : "";
+      const originalLabel = submitButton.textContent;
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Saving...";
+      thankYou.textContent = "Saving inquiry to the database...";
+      thankYou.style.color = "#5f6f66";
+
+      fetch(`${apiBaseUrl}/api/admissions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          studentName,
+          grade: selectedGrade,
+          parentName,
+          contactNumber,
+          message: additionalInfo
+        })
+      })
+        .then(async (response) => {
+          const payload = await response.json().catch(() => ({}));
+
+          if (!response.ok) {
+            throw new Error(payload.error || "Unable to save the admission inquiry right now.");
+          }
+
+          thankYou.textContent = `Thank you, ${parentName}. We have saved ${studentName}'s inquiry for ${selectedGrade} in the database.`;
+          thankYou.style.color = "#1e6f4b";
+          form.reset();
+
+          if (messageCount) {
+            messageCount.textContent = "0";
+          }
+
+          form.querySelectorAll(".is-invalid").forEach((field) => field.classList.remove("is-invalid"));
+        })
+        .catch((error) => {
+          thankYou.textContent = error.message || "Unable to save the admission inquiry right now.";
+          thankYou.style.color = "#c45532";
+        })
+        .finally(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = originalLabel;
+        });
+    });
+  }
+
+  if (currentYear) {
+    currentYear.textContent = String(new Date().getFullYear());
+  }
 });
