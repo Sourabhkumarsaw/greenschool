@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const messageCount = document.getElementById("messageCount");
   const currentYear = document.getElementById("currentYear");
   const submitButton = form?.querySelector(".form-submit");
-  const apiBaseUrl = window.location.protocol === "file:" ? null : window.location.origin;
+  const apiBaseUrl = window.location.origin;
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
   let activeSlide = 0;
   let sliderTimer;
@@ -216,12 +216,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!formIsValid) {
         thankYou.textContent = "Please complete all required fields correctly before submitting.";
-        thankYou.style.color = "#c45532";
-        return;
-      }
-
-      if (!apiBaseUrl) {
-        thankYou.textContent = "Start `python server.py` and open http://127.0.0.1:8000 to save submissions to the database.";
         thankYou.style.color = "#c45532";
         return;
       }
